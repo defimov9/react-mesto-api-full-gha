@@ -1,0 +1,15 @@
+.header__link_type_exit {
+    color: #A9A9A9;
+}
+
+@media screen and (max-width: 390px) {
+    .header__link_type_exit {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .header__link_type_exit {
+        margin-right: 0;
+    }
+}

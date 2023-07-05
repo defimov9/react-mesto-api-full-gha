@@ -1,0 +1,8 @@
+.elements__card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    background: #FFFFFF;
+    border-radius: 10px;
+}

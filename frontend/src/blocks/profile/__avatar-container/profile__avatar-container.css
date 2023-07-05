@@ -1,0 +1,7 @@
+.profile__avatar-container {
+    background-color: #000000;
+    background-image: url('../../../images/update-avatar.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
