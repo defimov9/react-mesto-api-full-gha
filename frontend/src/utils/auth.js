@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:3001';
+const BASE_URL = 'http://localhost:3000';
 const BASE_HEADER = { 'Content-Type': 'application/json' };
 
 class Auth {

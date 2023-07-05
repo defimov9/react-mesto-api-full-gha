@@ -17,9 +17,9 @@ const cardsContainerSelector = '.elements';
 const cardTemplateSelector = '#card-template';
 
 const apiConfig = {
-  baseUrl: 'http://localhost:3001',
+  baseUrl: 'http://localhost:3000',
   headers: {
-    authorization: 'a24761cd-23d0-46bd-bc4e-60ebdababd56',
+    'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
     'Content-Type': 'application/json',
   },
 };

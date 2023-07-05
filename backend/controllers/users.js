@@ -86,7 +86,7 @@ const updateUser = (req, res, next) => {
       if (!user) {
         throw new NotFoundError('Пользователь не найден.');
       }
-      res.send({ user });
+      res.send({ name: user.name, about: user.about });
     })
     .catch((err) => {
       if (err.name === 'ValidationError') {
@@ -112,7 +112,7 @@ const updateAvatar = (req, res, next) => {
       if (!user) {
         throw new NotFoundError('Пользователь не найден.');
       }
-      res.send({ user });
+      res.send({ avatar: user.avatar });
     })
     .catch((err) => {
       if (err.name === 'ValidationError') {
