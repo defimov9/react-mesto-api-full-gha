@@ -17,7 +17,7 @@ const cardsContainerSelector = '.elements';
 const cardTemplateSelector = '#card-template';
 
 const apiConfig = {
-  baseUrl: 'http://localhost:3000',
+  baseUrl: 'http://api.defimov9.mesto.nomoreparties.sbs',
   headers: {
     'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
     'Content-Type': 'application/json',
