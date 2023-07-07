@@ -19,7 +19,7 @@ class Api {
 
   getUserData() {
     return this._request(`${this._baseUrl}/users/me`, {
-      headers: this._headers,
+      headers: { ...this._baseHeader, Authorization: `Bearer ${localStorage.getItem('jwt')}` },
     });
   }
 
