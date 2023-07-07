@@ -1,4 +1,4 @@
-const BASE_URL = 'http://api.defimov9.mesto.nomoreparties.sbs';
+const BASE_URL = 'https://api.defimov9.mesto.nomoreparties.sbs';
 const BASE_HEADER = { 'Content-Type': 'application/json' };
 
 class Auth {
