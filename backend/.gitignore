@@ -13,3 +13,12 @@ node_modules
 .DS_Store
 .idea
 .vscode
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env
+*.env
