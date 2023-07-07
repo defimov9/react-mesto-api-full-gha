@@ -1,9 +1,8 @@
 import { apiConfig } from './constants';
 
 class Api {
-  constructor({ baseUrl, headers }) {
+  constructor({ baseUrl }) {
     this._baseUrl = baseUrl;
-    this._headers = headers;
   }
 
   _request(url, options) {
@@ -19,20 +18,29 @@ class Api {
 
   getUserData() {
     return this._request(`${this._baseUrl}/users/me`, {
-      headers: { ...this._baseHeader, Authorization: `Bearer ${localStorage.getItem('jwt')}` },
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
+        'Content-type': 'application/json'
+      },
     });
   }
 
   getInitialCards() {
     return this._request(`${this._baseUrl}/cards`, {
-      headers: this._headers,
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
+        'Content-type': 'application/json'
+      },
     });
   }
 
   updateUserInfo({ name, about }) {
     return this._request(`${this._baseUrl}/users/me`, {
       method: 'PATCH',
-      headers: this._headers,
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
+        'Content-type': 'application/json'
+      },
       body: JSON.stringify({
         name,
         about,
@@ -43,7 +51,10 @@ class Api {
   addNewCard({ name, link }) {
     return this._request(`${this._baseUrl}/cards`, {
       method: 'POST',
-      headers: this._headers,
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
+        'Content-type': 'application/json'
+      },
       body: JSON.stringify({
         name: name,
         link: link,
@@ -54,28 +65,40 @@ class Api {
   deleteCard(cardId) {
     return this._request(`${this._baseUrl}/cards/${cardId}`, {
       method: 'DELETE',
-      headers: this._headers,
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
+        'Content-type': 'application/json'
+      },
     });
   }
 
   addLike(cardId) {
     return this._request(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: 'PUT',
-      headers: this._headers,
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
+        'Content-type': 'application/json'
+      },
     });
   }
 
   deleteLike(cardId) {
     return this._request(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: 'DELETE',
-      headers: this._headers,
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
+        'Content-type': 'application/json'
+      },
     });
   }
 
   updateUserAvatar(link) {
     return this._request(`${this._baseUrl}/users/me/avatar`, {
       method: 'PATCH',
-      headers: this._headers,
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
+        'Content-type': 'application/json'
+      },
       body: JSON.stringify({
         avatar: link,
       }),

@@ -18,10 +18,6 @@ const cardTemplateSelector = '#card-template';
 
 const apiConfig = {
   baseUrl: 'https://api.defimov9.mesto.nomoreparties.sbs',
-  headers: {
-    'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
-    'Content-Type': 'application/json',
-  },
 };
 
 const validationConfig = {
