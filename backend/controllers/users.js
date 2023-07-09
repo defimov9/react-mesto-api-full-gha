@@ -141,7 +141,7 @@ const login = (req, res, next) => {
 };
 
 const getMe = (req, res, next) => {
-  const _id = req.params.userId ? req.params.userId : req.user._id;
+  const { _id } = req.user;
 
   User.findById(_id)
     .then((user) => {
@@ -150,13 +150,7 @@ const getMe = (req, res, next) => {
       }
       return res.send(user);
     })
-    .catch((err) => {
-      if (err.kind === 'ObjectId') {
-        next(new BadRequestError('Переданы некорректные данные.'));
-        return;
-      }
-      next(err);
-    });
+    .catch(next);
 };
 
 module.exports = {

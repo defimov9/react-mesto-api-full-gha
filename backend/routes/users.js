@@ -7,22 +7,19 @@ const {
   updateAvatar,
   getMe,
 } = require('../controllers/users');
-const { auth } = require('../middlewares/auth');
 
-router.get('/users', auth, getUsers);
+router.get('/', getUsers);
 
-router.get('/users/me', auth, getMe);
+router.get('/me', getMe);
 
 router.get(
-  '/users/:userId',
-  auth,
-  celebrate({ params: Joi.object().keys({ userId: Joi.string().length(24).hex() }) }),
+  '/:userId',
+  celebrate({ params: Joi.object().keys({ userId: Joi.string().length(24).hex().required() }) }),
   getUser,
 );
 
 router.patch(
-  '/users/me',
-  auth,
+  '/me',
   celebrate({
     body: Joi.object().keys({
       name: Joi.string().min(2).max(30).required(),
@@ -33,8 +30,7 @@ router.patch(
 );
 
 router.patch(
-  '/users/me/avatar',
-  auth,
+  '/me/avatar',
   celebrate(
     {
       body: Joi.object().keys({ avatar: Joi.string().pattern(/(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/([\w#!:.?+=&%!\-/]))?/).required() }),
